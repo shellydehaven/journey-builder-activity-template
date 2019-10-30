@@ -5,7 +5,6 @@ define(["postmonger", "jquery"], function(Postmonger, $) {
   var authTokens = {};
   var payload = {};
   $(window).ready(onRender);
-  //onRender();
 
   connection.on("initActivity", initialize);
   connection.on("requestedTokens", onGetTokens);
