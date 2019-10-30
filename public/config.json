@@ -31,7 +31,7 @@
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "__application_key_from_appcenter_here__",
+    "applicationExtensionKey": "b7b20843-dd06-4672-849c-1b8dbe934a45",
     "save": {
       "url": "https://ocenotification-jb-activity.herokuapp.com/journeybuilder/save",
       "verb": "POST",
