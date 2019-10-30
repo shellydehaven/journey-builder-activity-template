@@ -69,9 +69,11 @@ exports.save = function(req, res) {
   res.send(200, "Save");
 };
 
-let SF_USER_NAME = "rguptarakapil@us.imshealth.com";
-let SF_USER_PASSWORD = "Titan1@5";
-let SF_TERRITORY_NAME = ";Rashi Territory;";
+//let SF_USER_NAME = "rguptarakapil@us.imshealth.com";
+//let SF_USER_PASSWORD = "Titan1@5";
+let SF_USER_NAME = "oceadmin@ocemarketing2.com";
+let SF_USER_PASSWORD = "OceSales12#";
+let SF_TERRITORY_NAME = ";TM - SPC - Union City 20B06T14;"; // Rashi territory
 
 const formatMessage = (message, ...rest) => {
   return rest.reduce((m, r, i) => {
