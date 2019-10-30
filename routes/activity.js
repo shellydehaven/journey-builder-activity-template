@@ -28,7 +28,7 @@ function logData(req) {
     stale: req.stale,
     protocol: req.protocol,
     secure: req.secure,
-    originalUrl: req.originalUrl,
+    originalUrl: req.originalUrl
   });
   console.log("body: " + util.inspect(req.body));
   console.log("headers: " + req.headers);
@@ -79,7 +79,7 @@ const sendNotification = args => {
     environment: "production",
     redirectUri: "http://localhost:3000/oauth/_callback",
     mode: "single",
-    autoRefresh: true,
+    autoRefresh: true
   });
 
   org.authenticate(
@@ -91,7 +91,7 @@ const sendNotification = args => {
       } else {
         console.log("Salesforce authentication successful");
       }
-    },
+    }
   );
 };
 
