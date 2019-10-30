@@ -78,7 +78,7 @@ let SF_TERRITORY_NAME = ";TM - SPC - Union City 20B06T14;"; // Rashi territory
 
 const formatMessage = (message, ...rest) => {
   return rest.reduce((m, r, i) => {
-    const regexp = new RegExp(`\\{\\{${i}\\}\\}`, "g");
+    const regexp = new RegExp(`\\<\\<${i}\\>\\>`, "g");
     return m.replace(regexp, r);
   }, message);
 };
