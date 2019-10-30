@@ -91,7 +91,7 @@ const createNotification = (org, args) => {
   var notification = nforce.createSObject("OCE__Notification__c");
   notification.set("Name", "Hackathon Notification");
   notification.set("OCE__ContextType__c", "Tab");
-  notification.set("OCE__EntityType__c", "Home");
+  notification.set("OCE__EntityType__c", "standard-home");
   notification.set("OCE__Territories__c", SF_TERRITORY_NAME);
   if (args.hasOwnProperty("ocenotifyTitle"))
     notification.set("OCE__Title__c", args.ocenotifyTitle);
