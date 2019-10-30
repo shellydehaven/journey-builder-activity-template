@@ -60,13 +60,18 @@ define(["postmonger", "jquery"], function(Postmonger, $) {
   }
 
   function save() {
-    var postcardURLValue = $("#postcard-url").val();
-    var postcardTextValue = $("#postcard-text").val();
+    var ocenotifyTitleValue = $("#ocenotify-title").val();
+    var ocenotifyMessageValue = $("#ocenotify-message").val();
 
     payload["arguments"].execute.inArguments = [
       {
+        ocenotifyTitle: ocenotifyTitleValue,
+        ocenotifyMessage: ocenotifyMessageValue,
         tokens: authTokens,
+        key: "{{Contact.Key}}",
         emailAddress: "{{Contact.Attribute.PostcardJourney.EmailAddress}}",
+        firstName: "{{Contact.Attribute.PostcardJourney.FirstName}}",
+        lastName: "{{Contact.Attribute.PostcardJourney.LastName}}",
       },
     ];
 
