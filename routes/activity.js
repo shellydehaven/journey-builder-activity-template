@@ -83,7 +83,7 @@ const formatMessage = (message, ...rest) => {
   }, message);
 };
 
-const createNotification = args => {
+const createNotification = (org, args) => {
   const contact = data[args.key];
   //const fullName = args.firstName + " " + args.lastName;
   const fullName = contact.firstName + " " + contact.lastName;
@@ -128,7 +128,7 @@ const sendNotification = args => {
         console.error(err);
       } else {
         console.log("Salesforce authentication successful");
-        createNotification(args);
+        createNotification(org, args);
       }
     }
   );
