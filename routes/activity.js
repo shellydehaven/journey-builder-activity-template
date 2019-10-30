@@ -1,6 +1,7 @@
 "use strict";
 var util = require("util");
 var nforce = require("nforce");
+var data = require("./data");
 
 // Deps
 const Path = require("path");
@@ -83,6 +84,10 @@ const formatMessage = (message, ...rest) => {
 };
 
 const createNotification = args => {
+  const contact = data[args.key];
+  //const fullName = args.firstName + " " + args.lastName;
+  const fullName = contact.firstName + " " + contact.lastName;
+
   var notification = nforce.createSObject("OCE__Notification__c");
   notification.set("Name", "Hackathon Notification");
   notification.set("OCE__ContextType__c", "Tab");
@@ -92,10 +97,7 @@ const createNotification = args => {
     notification.set("OCE__Title__c", args.ocenotifyTitle);
   notification.set(
     "OCE__Message__c",
-    formatMessage(
-      args["ocenotifyMessage"],
-      args.firstName + " " + args.lastName
-    )
+    formatMessage(args["ocenotifyMessage"], fullName)
   );
   notification.set("OCE__StartDate__c", "2019-10-30");
 
