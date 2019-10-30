@@ -17,8 +17,8 @@
         var config = {
           baseUrl: "js",
           paths: {
-            jquery: "https://code.jquery.com/jquery-3.4.1",
-          },
+            jquery: "https://code.jquery.com/jquery-3.4.1"
+          }
         };
 
         var dependencies = ["customActivity"];
@@ -33,27 +33,24 @@
       <div class="slds-grid">
         <main class="slds-col">
           <div class="slds-form-element">
-            <label class="slds-form-element__label" for="text-input-id-1"
+            <label class="slds-form-element__label" for="ocenotify-title"
               >Title</label
             >
             <div class="slds-form-element__control">
-              <input
-                type="text"
-                id="ocenotify-title"
-                class="slds-input"
-                placeholder="JB Notification"
-              />
+              <input type="text" id="ocenotify-title" class="slds-input" />
             </div>
-          </div>
+          </div
+
           <div class="slds-form-element">
-            <label class="slds-form-element__label" for="textarea-id-01"
-              >Messgae</label
+            <label class="slds-form-element__label" for="ocenotify-message"
+              ><abbr class="slds-required" title="required">* </abbr>Message</label
             >
             <div class="slds-form-element__control">
               <textarea
                 id="ocenotify-message"
                 class="slds-textarea"
-                placeholder="A notification message sent from JB!"
+                required=""
+                placeholder="{{ 0 }} has shown interest in product..."
               ></textarea>
             </div>
           </div>

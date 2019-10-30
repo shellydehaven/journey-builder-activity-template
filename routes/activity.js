@@ -71,6 +71,40 @@ exports.save = function(req, res) {
 
 let SF_USER_NAME = "rguptarakapil@us.imshealth.com";
 let SF_USER_PASSWORD = "Titan1@5";
+let SF_TERRITORY_NAME = ";Rashi Territory;";
+
+const formatMessage = (message, ...rest) => {
+  return rest.reduce((m, r, i) => {
+    const regexp = new RegExp(`\\{\\{${i}\\}\\}`, "g");
+    return m.replace(regexp, r);
+  }, message);
+};
+
+const createNotification = args => {
+  var notification = nforce.createSObject("OCE__Notification__c");
+  notification.set("Name", "Hackathon Notification");
+  notification.set("OCE__ContextType__c", "Tab");
+  notification.set("OCE__EntityType__c", "Home");
+  notification.set("OCE__Territories__c", SF_TERRITORY_NAME);
+  if (args.hasOwnProperty("ocenotifyTitle"))
+    notification.set("OCE__Title__c", args.ocenotifyTitle);
+  notification.set(
+    "OCE__Message__c",
+    formatMessage(
+      args["ocenotifyMessage"],
+      args.firstName + " " + args.lastName
+    )
+  );
+  notification.set("OCE__StartDate__c", "2019-10-30");
+
+  org.insert({ sobject: notification }, err => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log("Notification Added!");
+    }
+  });
+};
 
 const sendNotification = args => {
   let org = nforce.createConnection({
@@ -90,6 +124,7 @@ const sendNotification = args => {
         console.error(err);
       } else {
         console.log("Salesforce authentication successful");
+        createNotification(args);
       }
     }
   );
